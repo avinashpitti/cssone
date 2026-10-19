@@ -1,0 +1,8 @@
+p{
+    background: aqua url(cat.jpg) ;
+}
+
+div{
+    background: violet url(cat.jpg) center no-repeat;
+}
+
