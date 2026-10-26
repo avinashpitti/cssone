@@ -1,0 +1,129 @@
+/* Base styles for readability */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    padding: 60px 20px 20px 20px; /* Top padding prevents fixed banner from overlapping */
+    background-color: #f7f9fa;
+    color: #333;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+/* ==========================================================
+   1. STATIC (Default)
+   - Every element starts as static.
+   - top, right, bottom, left, and z-index have NO effect.
+   ========================================================== */
+/* p { position: static; } */
+
+
+/* ==========================================================
+   2. FIXED
+   - Removed completely from normal page flow.
+   - Positioned relative to the browser window (viewport).
+   - Stays locked on screen when you scroll.
+   ========================================================== */
+.fixed-banner {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #111827;
+    color: #ffffff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 9999; /* Keeps it above everything */
+}
+
+
+/* ==========================================================
+   3. STICKY
+   - Hybrid between relative and fixed.
+   - Behaves like normal (relative) until you scroll past its threshold (top: 0),
+     then locks in place like fixed until its parent container ends.
+   ========================================================== */
+.sticky-nav {
+    position: sticky;
+    top: 0; /* Sticks to the very top edge */
+    background-color: #2563eb;
+    color: white;
+    padding: 14px 20px;
+    font-weight: bold;
+    border-radius: 4px;
+    margin-bottom: 24px;
+    z-index: 100;
+}
+
+
+/* ==========================================================
+   4. RELATIVE
+   - Stays in normal page flow, but you can nudge it using top/left/right/bottom
+     without affecting surrounding elements.
+   - Crucially, it acts as an anchor for child elements that are absolute!
+   ========================================================== */
+.relative-parent {
+    position: relative;
+    background-color: #e0e7ff;
+    border: 2px dashed #4f46e5;
+    padding: 30px 20px;
+    margin: 30px 0;
+    border-radius: 8px;
+}
+
+
+/* ==========================================================
+   5. ABSOLUTE
+   - Removed from normal document flow (takes up 0 space).
+   - Positions itself relative to its nearest ancestor with
+     position: relative, absolute, or fixed.
+   - If no ancestor has a position, it aligns to the <body> tag.
+   ========================================================== */
+.absolute-badge {
+    position: absolute;
+    top: -12px;       /* 12px above the top border of .relative-parent */
+    right: 20px;      /* 20px from the right border of .relative-parent */
+    background-color: #ef4444;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+}
+
+
+/* ==========================================================
+   EXPERIMENT WITH THE CAT IMAGE (.pict)
+   Uncomment different position values below to see the effect!
+   ========================================================== */
+.pict {
+    width: 250px;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+    margin: 20px auto;
+    border: 4px solid #3b82f6;
+
+    /* Option A: Relative nudge (shifts by 20px without affecting other text) */
+    /* position: relative;
+    top: 20px;
+    left: 40px; */
+
+    /* Option B: Fixed floating in bottom-left corner */
+    /* position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 100px; */
+
+    /* Option C: Sticky image that follows you down the page */
+    /* position: sticky;
+    top: 60px; */
+}
